@@ -25,6 +25,23 @@
     </div>
   </header>
 
+<div class="slider">
+  <div class="slides">
+	<img src="images/1.jpeg" class="slide active">
+	<img src="images/2.jpeg" class="slide active">
+	<img src="images/3.jpeg" class="slide active">
+	<img src="images/4.jpeg" class="slide active">
+	<img src="images/5.jpeg" class="slide active">
+  </div>
+  <div class="dots">
+    <span class="dot active" onclick="setSlide(0)"></span>
+    <span class="dot" onclick="setSlide(1)"></span>
+    <span class="dot" onclick="setSlide(2)"></span>
+<span class="dot" onclick="setSlide(3)"></span>
+<span class="dot" onclick="setSlide(4)"></span>
+  </div>
+</div>
+
   <section id="home" class="hero">
     <div class="container">
       <h2>Empowering Agriculture. Empowering Sri Lanka.</h2>
@@ -211,6 +228,30 @@
   });
 
   updateCarousel(); // initial load
+
+let slideIndex = 0;
+const slides = document.querySelector(".slides");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
+  slideIndex = index;
+}
+
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % dots.length;
+  showSlide(slideIndex);
+}
+
+function setSlide(index) {
+  showSlide(index);
+}
+
+setInterval(nextSlide, 3000);
+
 </script>
 
 

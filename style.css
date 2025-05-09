@@ -207,3 +207,47 @@ footer {
   transform: scale(1.05);
 }
 
+
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 2000px;
+  height: 200px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.slides {
+  display: flex;
+  width: 300%; /* 100% x number of images */
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+  height: 400px;
+  object-fit: cover;
+}
+
+.dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
